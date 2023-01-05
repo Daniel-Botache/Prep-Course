@@ -90,8 +90,18 @@ function asAmirror(str) {
 function capicua(numero){
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
-  //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
+  //izquierda a derecha que de derecha a izq uierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  var resultado = '';
+  var numTemp = [];
+  var arrayNum= Array.from(String(numero));
+  arrayNum.forEach(clave => numTemp.unshift(clave));
+  if (numTemp.toString() == arrayNum.toString()){
+    return 'Es capicua';
+  }
+  else
+    return 'No es capicua';
+
 }
 
 
@@ -99,6 +109,10 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  var string = cadena.replaceAll('a', '').replaceAll('b', '').replaceAll('c', '');
+
+  return string;
+
 }
 
 
@@ -106,6 +120,9 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+arr.sort((a, b) => (a.length-b.length));
+return arr;
+
 }
 
 
@@ -115,6 +132,18 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+  var interArr = [];
+ // for (elemento in arreglo1){
+  for (var i=0; i<arreglo1.length; i++){
+   var inter = arreglo2.find(key => key == arreglo1[i]);
+
+   if (inter != undefined){
+   interArr.push(inter); 
+   }
+   
+  }
+  return interArr;
+
 }
 
 
